@@ -43,7 +43,7 @@ def calc(x):
             return z
     def score(s):
         nonlocal run1
-        if "1" <= x <= "4":
+        if 1 <= x <= 4:
             while run1:
                 a = input("Введите первое число: ")
                 a = search(a)
@@ -53,28 +53,28 @@ def calc(x):
                 b = input("Введите второе число: ")
                 b = search(b)
             b = float(b)
-            if s == "1":
+            if s == 1:
                 print("Ответ:", plus(a, b))
-            elif s == "2":
+            elif s == 2:
                 print("Ответ:", minus(a, b))
-            elif s == "3":
+            elif s == 3:
                 print("Ответ:", delen(a, b))
-            elif s == "4":
+            elif s == 4:
                 print("Ответ:", umn(a, b))
-        elif "5" <= s <= "9":
+        elif 5 <= s <= 9:
             while run1:
                 a = input("Введите число: ")
                 a = search(a)
             a = float(a)
-            if s == "5":
+            if s == 5:
                 print("Ответ:", step(a))
-            elif s == "6":
+            elif s == 6:
                 print("Ответ:", kor(a))
-            elif s == "7":
+            elif s == 7:
                 print("Ответ:", sinus(a))
-            elif s == "8":
+            elif s == 8:
                 print("Ответ:", cosinus(a))
-            elif s == "9":
+            elif s == 9:
                 print("Ответ:", tang(a))
     score(x)
 run = True
@@ -97,20 +97,24 @@ while run2:
     9.Тангенс
     10.Выход
             """)
-            s = input(">>>")
-            run1 = True
-            if "1" <= s <= "9":
-                calc(s)
-            elif s == "10":
-                print("Выключение...")
-                run = False
-                run2 = False
-            else:
+            s = int(input(">>>"))
+            try:
+                run1 = True
+                if 1 <= s <= 9:
+                    calc(s)
+                elif s == "10":
+                    print("Выключение...")
+                    run = False
+                    run2 = False
+                else:
+                    print("Введите заново!!")
+                    input()
+            except(ValueError, TypeError):
                 print("Введите заново!!")
                 input()
     elif start == "2":
         print("Выключение...")
         run2 = False
     else:
-        input()
         print("Введите заново!")
+        input()
